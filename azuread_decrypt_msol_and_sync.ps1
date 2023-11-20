@@ -9,10 +9,10 @@ $client = new-object System.Data.SqlClient.SqlConnection -ArgumentList "Data Sou
 try {
     $client.Open()
 } catch {
-    Write-Host "[!] Could not connect to localdb with ADSync, trying ADSync2019..."
+    Write-Host "[!] Could not connect to localdb with ADSync2019, trying ADSync..."
     try {
         ## Tijl: finding the right instance can be done with `SQLLocalDB.exe i`
-        $client = new-object System.Data.SqlClient.SqlConnection -ArgumentList "Data Source=(localdb)\.\ADSync2019;Initial Catalog=ADSync"
+        $client = new-object System.Data.SqlClient.SqlConnection -ArgumentList "Data Source=(localdb)\.\ADSync;Initial Catalog=ADSync"
         $client.Open()
     } catch {
         return
